@@ -192,30 +192,32 @@
    used for filter chips. server = which server it runs on.
    ============================================================ */
 const CARS = [
-  {
-    name: "Mercedes-AMG GT63 (Khartoum)",
-    id: "mercedes_amg_gt63_khartoum",
-    class: "GT3",
-    server: "FORFUN",
-    url: "https://modsfire.com/",
-    verified: true
-  },
-  {
-    name: "BMW M4 (Street Tune)",
-    id: "bmw_m4_street_tune",
-    class: "Street",
-    server: "FORFUN",
-    url: "https://modsfire.com/",
-    verified: true
-  },
-  {
-    name: "Nissan Silvia S15 (Drift Spec)",
-    id: "nissan_s15_drift_spec",
-    class: "Drift",
-    server: "FORFUN",
-    url: "https://modsfire.com/",
-    verified: false
-  }
+  { name: "Mercedes-AMG GT63 (Khartoum)", id: "mercedes_amg_gt63_khartoum", class: "GT3", server: "FORFUN", url: "https://modsfire.com/g8hk0xKAmDoV0CV", image: "images/mercedes%20gt63%20khartoum.jpg", verified: true },
+  { name: "BMW M4", id: "ks_bmw_m4_zhdxash", class: "Performance", server: "FORFUN", url: "https://modsfire.com/cfD6OCOs663kUdu", image: "images/ksbmwm4.jpg", verified: true },
+  { name: "BMW E92 335d", id: "ckyp_bmw_e92_335d_zhdxsolo", class: "Performance", server: "FORFUN", url: "https://modsfire.com/573675EO5LG8V92", image: "images/e92.jpg", verified: true },
+  { name: "Nissan GT-R '21", id: "nissan_gtr_21_zhdxash-v2", class: "Performance", server: "FORFUN", url: "https://modsfire.com/L7k2Ir9rjxEOhVU", image: "images/nissan%20gtr%2021.jpg", verified: true },
+  { name: "BMW M3 G80 V2", id: "bmw_m3_g80_v2", class: "Performance", server: "FORFUN", url: "https://modsfire.com/ooqd7mEt8k2kjys", image: "images/m3g80v2.jpg", verified: true },
+  { name: "Toyota GR Corolla", id: "toyota_gr_corolla_zhdxash", class: "Performance", server: "FORFUN", url: "https://modsfire.com/Zv4iIWzk6VG1CPJ", image: "images/corolla.png", verified: true },
+  { name: "BMW E36", id: "bmw_e36_zhdxash", class: "Street", server: "FORFUN", url: "https://modsfire.com/115G518F9X101sP", image: "images/e36.jpg", verified: true },
+  { name: "BMW 1M", id: "bmw_1m_zhdxash", class: "Performance", server: "FORFUN", url: "https://modsfire.com/75Kw1xr8gZ1Ro5q", verified: true },
+  { name: "BMW M3 G80 ST2", id: "bmw_m3_g80_st2_zhoodxashxx", class: "Performance", server: "FORFUN", url: "https://modsfire.com/K7MScgu3XuCqHst", image: "images/m3g80.jpg", verified: true },
+  { name: "BMW M4 CSL", id: "m4csl_zhdxash", class: "Performance", server: "FORFUN", url: "https://modsfire.com/Eg7809U6iC9p9uc", image: "images/m4csl.jpg", verified: true },
+  { name: "BMW M4 Stage 2 (Mafia)", id: "bmw_m4_stage2_mafia_zhoodxashxx", class: "Performance", server: "FORFUN", url: "https://modsfire.com/1kMW9i0hK1V78G2", image: "images/m4%20mafia.jpg", verified: true },
+  { name: "Chevy SS 2015", id: "chevy_ss_2015_zhdxash", class: "Street", server: "FORFUN", url: "https://modsfire.com/dKcfu9G6QqCasxI", image: "images/chevy%20ss.jpg", verified: true },
+  { name: "Cadillac CT5-V", id: "cadillac_ct5-v_zhoodxashxx", class: "Street", server: "FORFUN", url: "https://modsfire.com/mnm602Ph9FUbrLF", verified: true },
+  { name: "Hyundai Avante N", id: "zhd_hyundai_avante_n_xashxx", class: "Street", server: "FORFUN", url: "https://modsfire.com/h8Sy32u867xTGqE", verified: true },
+  { name: "Kia Cerato Koup", id: "kia_cerato_koup_zhdxash", class: "Street", server: "FORFUN", url: "https://modsfire.com/K9Azm9vPuf9e3a2", image: "images/kia%20cerato.jpg", verified: true },
+  { name: "Peugeot 308 (2022)", id: "zhd_peugeot_308_2022xashxx", class: "Street", server: "FORFUN", url: "https://modsfire.com/2aFy8174wm2Wr3M", image: "images/peugeot%20308.jpg", verified: true },
+  { name: "VW Golf Mk6", id: "vw_golf_mk6_zhdxash", class: "Street", server: "FORFUN", url: "https://modsfire.com/u5MLIcJsH09LIf4", image: "images/golf%20mk6.jpg", verified: true },
+  { name: "VW Golf GTI", id: "vw_golf_gti_zhdxash", class: "Street", server: "FORFUN", url: "https://modsfire.com/z0Yvy97326qHTP5", image: "images/golf%20gti.jpg", verified: true },
+  { name: "Traffic Pack", id: "traffic_pack", class: "Traffic", server: "FORFUN", url: "https://modsfire.com/WJku0n6jO1lA1dt", verified: true },
+  { name: "Traffic — Microbus EGY", id: "traffic_zhood_microbusegy", class: "Traffic", server: "FORFUN", url: "https://modsfire.com/6q8iSOvMu7bcN7D", verified: true },
+  { name: "Traffic — GT-R", id: "traffic_gtr_zhdxash-1.2", class: "Traffic", server: "FORFUN", url: "https://modsfire.com/Dm07jN1HeWF5Ihz", verified: true },
+  { name: "Traffic — Isuzu Tanker", id: "traffic_zhd_isuzu_tanker", class: "Traffic", server: "FORFUN", url: "https://modsfire.com/3Gc0Kt808V8si0t", verified: true },
+  { name: "Traffic — Ford Transit", id: "traffic_zhd_for_transit", class: "Traffic", server: "FORFUN", url: "https://modsfire.com/C0a3p1eZ00rN977", verified: true },
+  { name: "Traffic — Subaru Impreza", id: "traffic_sub_impreza_zhdxash-1.2", class: "Traffic", server: "FORFUN", url: "https://modsfire.com/Pu3MH4hBel0StoU", verified: true },
+  { name: "Suzuki Carry Wagon", id: "zhd_suzukicarry_wagon", class: "Traffic", server: "FORFUN", url: "https://modsfire.com/yDigP1gd2CH0R7K", verified: true },
+  { name: "Hyundai Elantra (by Diz)", id: "diz_hyundai_elantra", class: "Street", server: "FORFUN", url: "https://modsfire.com/THZJGtu4867j419", verified: true }
 ];
 
 const grid = document.getElementById('grid');
@@ -264,7 +266,9 @@ function renderGrid(){
     <div class="card">
       <div class="card-media">
         <div class="class-badge">${c.class}</div>
-        <div class="car-glyph">${carGlyph(c.class)}</div>
+        ${c.image
+          ? `<img src="${c.image}" alt="${c.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">`
+          : `<div class="car-glyph">${carGlyph(c.class)}</div>`}
       </div>
       <div class="card-body">
         <div class="car-name">${c.name}</div>

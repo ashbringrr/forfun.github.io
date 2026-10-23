@@ -3,9 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FORFUN Assetto Corsa server: download the mod cars, join the servers, and read the rules.">
+<meta name="theme-color" content="#0a0a0c">
+<meta property="og:title" content="FORFUN — Server Access Guide">
+<meta property="og:description" content="Download the mod cars and join the FORFUN Assetto Corsa servers.">
 <title>FORFUN — Server Access Guide</title>
 <link rel="icon" type="image/png" href="images/zzs.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -73,7 +78,6 @@
     border-bottom:1px solid var(--card-border);
   }
   .hero-banner::before{
-    /* asphalt grain */
     content:''; position:absolute; inset:0; z-index:0; opacity:0.5;
     background-image:
       repeating-linear-gradient(0deg, rgba(255,255,255,0.015) 0 1px, transparent 1px 3px);
@@ -174,6 +178,15 @@
   .chip:hover{border-color:var(--accent-dim); color:var(--text);}
   .chip.active{background:var(--accent); border-color:var(--accent); color:#fff;}
 
+  /* keyboard focus */
+  .chip:focus-visible,
+  .dl-btn:focus-visible,
+  .copy-btn:focus-visible,
+  .join-btn:focus-visible,
+  .discord-join-btn:focus-visible,
+  .tiktok-btn:focus-visible,
+  .search-box input:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
   /* ---- grid ---- */
   main{max-width:1180px; margin:0 auto; padding:0 24px 80px;}
   .grid{
@@ -192,10 +205,16 @@
     position:relative; border-bottom:1px solid var(--card-border);
   }
   .card-media .class-badge{
-    position:absolute; top:10px; left:10px;
+    position:absolute; top:10px; left:10px; z-index:1;
     background:rgba(10,10,12,0.85); border:1px solid var(--card-border);
     font-family:var(--mono); font-size:10px; letter-spacing:0.06em;
     padding:4px 8px; border-radius:5px; color:var(--text-dim); text-transform:uppercase;
+  }
+  .new-tag{
+    position:absolute; top:10px; right:10px; z-index:1;
+    background:var(--accent); color:#fff;
+    font-family:var(--mono); font-size:10px; letter-spacing:0.06em;
+    padding:4px 8px; border-radius:5px;
   }
   .card-media .car-glyph{font-size:34px; opacity:0.35;}
   .card-body{padding:16px; display:flex; flex-direction:column; gap:10px; flex:1;}
@@ -266,6 +285,26 @@
     padding:11px 0; border-radius:8px; transition:background .15s;
   }
   .join-btn:hover{background:#4a80ff;}
+
+  .join-actions{display:flex; gap:8px;}
+  .join-actions .join-btn{flex:1;}
+  .ip-copy{
+    background:var(--bg-raise); border:1px solid var(--card-border); color:var(--text-dim);
+    font-family:var(--mono); font-size:11px; padding:0 14px; border-radius:8px; cursor:pointer; transition:all .15s;
+  }
+  .ip-copy:hover{border-color:var(--accent); color:var(--text);}
+  .ip-copy.copied{color:#5ad17e; border-color:#5ad17e;}
+  .ip-copy:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+  .hero-cta{
+    display:inline-block; margin-top:22px; background:var(--accent); color:#fff; text-decoration:none;
+    font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; letter-spacing:0.03em;
+    padding:12px 22px; border-radius:8px; transition:background .15s;
+  }
+  .hero-cta:hover{background:#4a80ff;}
+  .hero-cta:focus-visible{outline:2px solid #fff; outline-offset:3px;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+  #garage{scroll-margin-top:80px;}
 
   /* ---- connect (discord / tiktok) ---- */
   .connect-section{max-width:1180px; margin:0 auto; padding:0 24px 48px;}
@@ -406,6 +445,7 @@
     <div class="hero-copy" id="heroCopy">
       <h1>Your gateway to the<br>modded <span>experience</span>.</h1>
       <p>Welcome, driver. This isn't just Assetto Corsa — it's FORFUN. We built this server for those who live the lore, respect the streets, and drive with purpose. Before you hit the track, here's how to get set up.</p>
+      <a class="hero-cta" href="#garage">Browse the mod garage</a>
     </div>
   </div>
 </div>
@@ -426,7 +466,10 @@
         <div class="join-dot"></div>
       </div>
       <div class="join-desc">38.87.116.51 : 9158</div>
-      <a class="join-btn" href="https://acstuff.club/s/q:race/online/join?ip=38.87.116.51&httpPort=9158" target="_blank" rel="noopener">JOIN SERVER</a>
+      <div class="join-actions">
+        <a class="join-btn" href="https://acstuff.club/s/q:race/online/join?ip=38.87.116.51&httpPort=9158" target="_blank" rel="noopener">JOIN SERVER</a>
+        <button class="ip-copy" data-ip="38.87.116.51:9158" type="button">COPY IP</button>
+      </div>
     </div>
     <div class="join-card">
       <div class="join-card-top">
@@ -434,7 +477,10 @@
         <div class="join-dot"></div>
       </div>
       <div class="join-desc">185.147.159.16 : 8015</div>
-      <a class="join-btn" href="https://acstuff.club/s/q:race/online/join?ip=185.147.159.16&httpPort=8015" target="_blank" rel="noopener">JOIN SERVER</a>
+      <div class="join-actions">
+        <a class="join-btn" href="https://acstuff.club/s/q:race/online/join?ip=185.147.159.16&httpPort=8015" target="_blank" rel="noopener">JOIN SERVER</a>
+        <button class="ip-copy" data-ip="185.147.159.16:8015" type="button">COPY IP</button>
+      </div>
     </div>
   </div>
 </div>
@@ -518,10 +564,10 @@
   </div>
 </div>
 
-<div class="controls">
+<div class="controls" id="garage">
   <div class="search-box">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8c8c99" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-    <input id="searchInput" type="text" placeholder="Search car name or ID…">
+    <input id="searchInput" type="text" placeholder="Search car name or ID…" aria-label="Search cars">
   </div>
   <div class="chip-row" id="chipRow"></div>
 </div>
@@ -538,8 +584,14 @@
    EDIT YOUR CATALOG HERE.
    Add one object per car. class = badge shown on the card and
    used for filter chips. server = which server it runs on.
+   isNew: true shows a NEW tag on the card.
    ============================================================ */
 const CARS = [
+  // ---- newest first (replace ids with real folder names if they differ) ----
+  { name: "BMW X5 F85", id: "bmw_x5_f85", class: "Performance", server: "FORFUN", url: "https://modsfire.com/dS9HRTolGLtz3cn", image: "images/x55.jpg", verified: true, isNew: true },
+  { name: "Mercedes-Benz W211 E55", id: "mercedes_w211_e55", class: "Performance", server: "FORFUN", url: "https://modsfire.com/DuMDP2r18j0jWc1", image: "images/w2111.jpg", verified: true, isNew: true },
+  { name: "Audi RS3 Sportback", id: "audi_rs3_sportback", class: "Performance", server: "FORFUN", url: "https://modsfire.com/T3h7vpXPrU3SXrr", image: "images/rs3.jpg", verified: true, isNew: true },
+  { name: "Nissan Skyline R34", id: "nissan_skyline_r34", class: "Performance", server: "FORFUN", url: "https://modsfire.com/1hx7b00mOQXX1t1", image: "images/gtr.jpg", verified: true, isNew: true },
   { name: "Ferrari 812 ZHOOD x FORFUN", id: "Ferrari_812_zhdxash", class: "FORFUN", server: "FORFUN", url: "https://modsfire.com/1RCV32kbJnUpctM", image: "images/812.jpg", verified: true },
   { name: "Mercedes-AMG GT63 (Khartoum)", id: "mercedes_amg_gt63_khartoum", class: "GT3", server: "FORFUN", url: "https://modsfire.com/g8hk0xKAmDoV0CV", image: "images/mercedes%20gt63%20khartoum.jpg", verified: true },
   { name: "BMW M4", id: "ks_bmw_m4_zhdxash", class: "Performance", server: "FORFUN", url: "https://modsfire.com/cfD6OCOs663kUdu", image: "images/ksbmwm4.jpg", verified: true },
@@ -570,6 +622,8 @@ const CARS = [
   { name: "Hyundai Elantra (by Diz)", id: "diz_hyundai_elantra", class: "Street", server: "FORFUN", url: "https://modsfire.com/THZJGtu4867j419", verified: true }
 ];
 
+const CLASS_ORDER = ['FORFUN', 'GT3', 'Performance', 'Street', 'Traffic'];
+
 const grid = document.getElementById('grid');
 const chipRow = document.getElementById('chipRow');
 const searchInput = document.getElementById('searchInput');
@@ -577,8 +631,15 @@ const countLine = document.getElementById('countLine');
 
 let activeClass = 'All';
 
+const esc = s => String(s).replace(/[&<>"']/g, ch => (
+  {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]
+));
+
 function classes(){
-  return ['All', ...new Set(CARS.map(c => c.class))];
+  const present = new Set(CARS.map(c => c.class));
+  const ordered = CLASS_ORDER.filter(c => present.has(c));
+  const extra = [...present].filter(c => !CLASS_ORDER.includes(c));
+  return ['All', ...(CARS.some(c => c.isNew) ? ['New'] : []), ...ordered, ...extra];
 }
 
 function renderChips(){
@@ -587,7 +648,10 @@ function renderChips(){
     const chip = document.createElement('div');
     chip.className = 'chip' + (cls === activeClass ? ' active' : '');
     chip.textContent = cls;
+    chip.tabIndex = 0;
+    chip.setAttribute('role', 'button');
     chip.onclick = () => { activeClass = cls; renderChips(); renderGrid(); };
+    chip.onkeydown = e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); chip.click(); } };
     chipRow.appendChild(chip);
   });
 }
@@ -600,7 +664,7 @@ function carGlyph(cls){
 function renderGrid(){
   const q = searchInput.value.trim().toLowerCase();
   const filtered = CARS.filter(c => {
-    const matchesClass = activeClass === 'All' || c.class === activeClass;
+    const matchesClass = activeClass === 'All' || (activeClass === 'New' ? c.isNew : c.class === activeClass);
     const matchesQuery = !q || c.name.toLowerCase().includes(q) || c.id.toLowerCase().includes(q);
     return matchesClass && matchesQuery;
   });
@@ -608,23 +672,24 @@ function renderGrid(){
   countLine.textContent = `${filtered.length} / ${CARS.length} cars`;
 
   if(filtered.length === 0){
-    grid.innerHTML = `<div class="empty">no cars match “${q}”. try a different search or class.</div>`;
+    grid.innerHTML = `<div class="empty">no cars match “${esc(q)}”. try a different search or class.</div>`;
     return;
   }
 
   grid.innerHTML = filtered.map(c => `
     <div class="card">
       <div class="card-media">
-        <div class="class-badge">${c.class}</div>
+        <div class="class-badge">${esc(c.class)}</div>
+        ${c.isNew ? '<div class="new-tag">NEW</div>' : ''}
         ${c.image
-          ? `<img src="${c.image}" alt="${c.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover;">`
+          ? `<img src="${c.image}" alt="${esc(c.name)}" loading="lazy" style="width:100%;height:100%;object-fit:cover;" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'car-glyph',textContent:'${carGlyph(c.class)}'}))">`
           : `<div class="car-glyph">${carGlyph(c.class)}</div>`}
       </div>
       <div class="card-body">
-        <div class="car-name">${c.name}</div>
-        <div class="car-id">${c.id}</div>
+        <div class="car-name">${esc(c.name)}</div>
+        <div class="car-id">${esc(c.id)}</div>
         <div class="meta-row">
-          <span class="server-tag">${c.server}</span>
+          <span class="server-tag">${esc(c.server)}</span>
           ${c.verified
             ? `<span class="verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>verified</span>`
             : `<span style="color:#8c8c99">unverified</span>`}
@@ -632,7 +697,7 @@ function renderGrid(){
       </div>
       <div class="dl-row">
         <a class="dl-btn" href="${c.url}" target="_blank" rel="noopener">DOWNLOAD</a>
-        <button class="copy-btn" data-url="${c.url}" title="Copy link">
+        <button class="copy-btn" data-url="${c.url}" title="Copy link" aria-label="Copy download link for ${esc(c.name)}">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
         </button>
       </div>
@@ -641,13 +706,37 @@ function renderGrid(){
 
   grid.querySelectorAll('.copy-btn').forEach(btn => {
     btn.onclick = () => {
-      navigator.clipboard.writeText(btn.dataset.url).then(() => {
+      const url = btn.dataset.url;
+      const done = () => {
         btn.classList.add('copied');
-        setTimeout(() => btn.classList.remove('copied'), 1200);
-      });
+        btn.title = 'Copied!';
+        setTimeout(() => { btn.classList.remove('copied'); btn.title = 'Copy link'; }, 1200);
+      };
+      const fallback = () => {
+        const t = document.createElement('textarea');
+        t.value = url; t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select();
+        try{ document.execCommand('copy'); done(); }catch(e){}
+        t.remove();
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(done).catch(fallback);
+      }else{
+        fallback();
+      }
     };
   });
 }
+
+
+// copy server IP buttons
+document.querySelectorAll('.ip-copy').forEach(btn => {
+  btn.onclick = () => {
+    const ip = btn.dataset.ip;
+    const done = () => { btn.classList.add('copied'); btn.textContent = 'COPIED'; setTimeout(() => { btn.classList.remove('copied'); btn.textContent = 'COPY IP'; }, 1200); };
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(ip).then(done).catch(() => {}); }
+  };
+});
 
 searchInput.addEventListener('input', renderGrid);
 renderChips();
@@ -681,7 +770,7 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
       if(guild.name) nameEl.textContent = guild.name;
 
       if(guild.icon && guild.id){
-        iconWrap.innerHTML = `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png?size=128" alt="${guild.name || 'Discord'} icon">`;
+        iconWrap.innerHTML = `<img src="https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png?size=128" alt="${esc(guild.name || 'Discord')} icon">`;
       }
 
       statsEl.innerHTML = `
@@ -719,8 +808,6 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     heroCopy.classList.add('in');
   }, totalOn);
 })();
-
-
 </script>
 </body>
 </html>
